@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Fibonacci Number</title>
+    <script>
+        function isFibonacci(num) {
+            // Function to check if a number is a perfect square
+            function isPerfectSquare(n) {
+                const sqrt = Math.sqrt(n);
+                return sqrt === Math.floor(sqrt);
+            }
+
+            // Check if the number satisfies Fibonacci conditions
+            if (isPerfectSquare(5 * num * num + 4) || isPerfectSquare(5 * num * num - 4)) {
+                return true;
+            }
+            return false;
+        }
+
+        function checkFibonacci() {
+            const input = parseInt(prompt("Enter a non-negative integer:"), 10);
+
+            // Validate input and show the result
+            if (!isNaN(input) && input >= 0) {
+                const result = isFibonacci(input);
+                alert(result ? `${input} is a Fibonacci number.` : `${input} is not a Fibonacci number.`);
+            } else {
+                alert("Please enter a valid non-negative integer.");
+            }
+        }
+    </script>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+    <h1>Check if a Number is a Fibonacci Number</h1>
+    <button onclick="checkFibonacci()">Check Fibonacci</button>
 </body>
-
 </html>
+
